@@ -80,25 +80,74 @@ The team should be familiar with testing and debugging code, with the best pract
 ## 5 - With reference to one of your own projects, discuss what knowledge or skills were required to complete your project, and to overcome challenges
 <!-- [Effectively describes a range of skills and knowledge used to complete a project] 6 points -->
 
+My last project was creating a webserver API. To complete this project, I used my knowledge of programming in Python to handle the backend logic for the webserver. This needed to handle any errors gracefully and follow RESTful design concepts. This was done within a Flask framework which through python was connected to an SQL database. Using PostgreSQL to create, manipulate and query data in a robust schema. 
+
+To ensure the data was secure I used JWT for authentication and authorization requiring users to login to access privlidged information, and were only able to create and manipulate data if they had specific permissions assigned to their tokens, or only able to access their own data instead. 
+
+The biggest challenges I faced where mostly found in stages. Originally, I found it difficult to conceptulize exactly all the steps needed to be undertaken to complete the project and therefore breaking down the work into discrete chunks of progress required me to spend time planning and forward thinking to overcome this challenge. The main issue I faced was getting authentication to work in the way I wanted, where permissions were assigned based on role, so that a group of people could share the same permission. I managed to make this work by assigning a role within the JWT token data, which could be checked and extracted to provide permission to access data (which also worked for ID). Finally, the biggest challenge I faced was trying to query SQL while creating joins in the tables in order to display relevant information to a query from two different tables. This one was particularly difficult and needed to be set aside while I worked on the MVP, and meanwhile was reacing out to peers & educators for assistance with this. Eventually while reading online I was able to find inspiration for an idea to fix this, and with further persistance was able to create this join. 
+
+Finally, creating documentation for my API required concise language and communication in order to clearly explain the purpose, function and usage of my API. 
 
 ---
 
 ## 6 - With reference to one of your own projects, evaluate how effective your knowledge and skills were for this project, and suggest changes or improvements for future projects of a similar nature
 <!-- [Evaluates effectiveness of knowledge and skills accurately, providing examples, and providing an insightful improvement on each skill] 6 points -->
 
+With the mentioned API above, my skills and knoweldge were adequate for a simple project in my opinion. I was able to create the API to work as intended for simple functions, however I do believe there were limitations in my knowledge that restricted me from improving further. 
+
+While I was able to use JWT for assigning roles for authentication/authorization, the method I used was making the role and id additional claims in the JWT token. This was the way I was able to learn within the time-constraint of the assignment, however I recognize that it's not the most secure form of authorization. All of the information needed for authorization is stored within the token meaning if it is compromised it can be manipulated for nefarious purposes, as the JWT tokens aren't encrypted. A future improvement might be researching JWE tokens which do support encryption, or server sided role based authentication to provide a higher level of security. This would teach me alternative approaches to security diversifying my knowledge to be able to apply the appropriate method depending on the situaiton. 
+
+I also realized that my knowledge of API design structure was limited, and I often found myself replicating the Model-View-Controller (MVC) architecture that I had seen in other implementations. However, I believe this would cause some redundant code or unnecessary features without fully understanding what each piece of code was intended to do. To improve my proficiency in API development, I need to gain a deeper understanding of the underlying principles and components of the MVC architecture. By doing so, I hope to make more informed design decisions and be better equipped to identify and debug potential issues in my code, leading to the creation of more effective and efficient software.
+
+
+The database I had created for this project stored lab results for various products within the company. To ensure valid data was being entered, I made generic constraints to apply to all products so that a mistype couldn't end up with invalid data. However, a more effective database would have individual constraints for each product for their expected ranges. 
+To achieve this, I could have created another table that specifically defined the constraints for each product. This would have allowed me to create more precise constraints that were tailored to the specific needs of each product. With this approach, I could have better ensured that the data stored in the database was accurate and met the specific requirements of each product. At the time I did not have the knowledge and time to achieve this, but if I acquire the necessary skills in the future, it'll make my projects more effective as I will have a better understanding of table interactions within databases. 
 
 ---
 
 ## 7 - Explain control flow, using an example from the JavaScript programming language
 <!-- [Provides a thorough explanation of control flow in programming] 6 points -->
 
+Control flow refers to the order that statements are executed in a program based off conditions and input. Javascript uses conditional statements, loops and calls to manipulate the control flow. 
+
+For this I will use a counting example that will iterate through the numbers 1-10 and print (console.log) whether the number is odd, or even. 
+
+```js
+for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+      console.log(i + " is even");
+    } else {
+      console.log(i + " is odd");
+    }
+  }
+```
+In this example, the for line defines a loop where a counter starts at 1 (i=1), it will itierate until i is larger than or equal to 10 and every itiration will increase the value of i by 1. '
+In each loop, it will first check if i is divisble by two, and if it is will log ([number] is even), then go to the next iteration of the loop. If it is not even, else will inact and it'll print the number is odd instead. It'll do this for every number until 10. 
+
+Another form for loops are "while" loops, which will continue executing as long as a condition is true. 
 
 ---
 
 ## 8 - Explain type coercion, using examples from the JavaScript programming language
 <!-- [Provides a thorough explanation of type coercion in programming] 6 points -->
 
-<!-- Explain == automatically type coerces.  -->
+Type coercion is the conversion of a data type into another one. JavaScript will automatically coerce data in some scenarios. For example, if you add numeric 1 to a string 1, it'll return "11" as it concatenates the two strings. 
+
+```js
+console.log(1 + "1"); // "55"
+console.log("1" + 1); // "55"
+```
+
+The equal operator '==' will automatically coerce values, where the '===' will not. E.g.
+
+```js
+console.log(1 == "1"); // true
+console.log(1 === "1"); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+console.log(0 == false) // true
+console.log(0 === false) // false
+```
 
 ---
 
