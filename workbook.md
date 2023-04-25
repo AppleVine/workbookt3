@@ -23,17 +23,29 @@ Now code can be pulled for review by the team before it's deployed to make sure 
 
 Different standards explain these characteristics differently using similar language. The ISO/IEC 25010:2011 standard uses Functional Suitability, Performance Efficiency, Compatability, Usability, Reliability, Security, Maintainability and Portability. 
 
-Functional suitability refers to the codes ability to perform all of the required functions as expected. This aspect is split into three sub-characteristics in the standard. Functional completeness - the degree to which software performs all required functions & features, functional correctness - the software behaving as expected under any condition, and functional appropriateness - how appropriate the software is for its intended use. 
+Functional suitability refers to the codes ability to perform all of the required functions as expected. This aspect is split into three sub-characteristics in the standard. 
+- Functional completeness: the degree to which software performs all required functions & features.
+- functional correctness: the software behaving as expected under any condition.
+- functional appropriateness: how appropriate the software is for its intended use. 
 
-Performance Efficiency is the ability of the software to perform its functions within expected conditions (regarding time & resources). The sub-categories are time behaviour - is how fast the software performs its function, usually within a specified time-limit. Resource utalization refers to the optimization of resource usage and ability to work with available resources. Finally, capacity is the softwares ability to handle the expected workload with the available resources. 
+Performance Efficiency is the ability of the software to perform its functions within expected conditions (regarding time & resources). The sub-categories are:
+- time behaviour - is how fast the software performs its function, usually within a specified time-limit. 
+- Resource utalization refers to the optimization of resource usage and ability to work with available resources. 
+- Capacity is the softwares ability to handle the expected workload with the available resources. 
 
-Compatability rates the ability for the software to coexist with other software. Co-existance rates the software's ability to not interefere with, or be interered by, the functions of other software and/or systems. Interoperability is the softwares ability to communicate and exchange data with other software or systems. 
+Compatability rates the ability for the software to coexist with other software. 
+- Co-existance rates the software's ability to not interefere with, or be interered by, the functions of other software and/or systems. 
+- Interoperability is the softwares ability to communicate and exchange data with other software or systems. 
 
 Usability is how effective, efficient and satisfying software is to used by the targeet users. Userability has 6 subcategories; Appropriateness recognizability, learnability, operability, user error protection, user interface aesthetics and accessibility. Essentially, the software should be easy to learn (intuitive) to effectively carry out the required task, while protecting the system against user errors, and to provide an interface that is satisfying and accessible for as many people as possible. 
 
 Reliability measures how long the software performs its function over a period of time. The software grows in 'maturity' as it continues to be reliable. Availability measures how long the software is operational and accessible when required. Fault tolerance is it's ability to remain operational despite hardware or software faults, and finally recoverability is how well the software is able to be recovered or re-established after an interruption or failure. 
 
-Security is the degree that the software protects information & data. Confidentiality is restricting this data to only those authorized to have access. Integrity is how well the software prevents unauthorized access to or manipulation of data. Non-repudiation is creating accountability and 'paper trails' proving events to have taken place, and preventing them from being 'repudated'. Authenticity is the ability to prove data to be accurate to what it is claimed. 
+Security is the degree that the software protects information & data. 
+- Confidentiality is restricting this data to only those authorized to have access. 
+- Integrity is how well the software prevents unauthorized access to or manipulation of data. 
+- Non-repudiation is creating accountability and 'paper trails' proving events to have taken place, and preventing them from being 'repudated'. 
+- Authenticity is the ability to prove data to be accurate to what it is claimed. 
 
 Maintainability is how efficiently software can be modified and maintained. 
 - Modularity is how well software is segmented into discrete components in order to have unexpected consequences when altering individual functions. 
@@ -51,6 +63,14 @@ Portability measures the softwares ability for change to other systems, its own 
 
 ## 3 - Outline a standard high level structure for a MERN stack application and explain the components
 <!-- [Shows almost flawless understanding of the high level structure of the app] 6 points -->
+
+A MERN stack is one variation of a MEAN stack using MonogoDB (document database), Express.js (Node.js web framework), React.js (Client-side JavaScript framework) and Node.js (a JavaScript runtime environment for server-side applications). It's made up of three layers, the front end, back end and database.
+
+In a MERN stack web application, React is used to build the front-end layer by providing a JavaScript library for creating the user interface and experience (UI/UX). The reusable components within are designed to be simple to implement to handle rendering and updating the UI with the provided data. 
+
+The backend layer in a MERN stack is made with Node.js and Express.js, which provides a runtime environment for JavaScript code on the server side while express provides developers with tools to simplify the process of building web applications, and handling the HTTP requests and responses along with along with database storage and retrieval requests.
+
+The database layer is designed with MongoDB, which works entirely with JSON to provide easy communication of data throughout the full stack. It integrates simply and effectively with React, Express & Node. 
 
 
 ---
@@ -291,52 +311,170 @@ console.log(filteredArr); // output: [2, 4]
 
 ---
 
-## 11 -   
+## 11 - Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language
 <!-- [Demonstrates an extensive ability to manipulate objects] 6 points -->
+
+You can access and update proprties of an object using dot or square bracket notation like below. 
+
+```js
+let person = { 
+  name: 'Jakeb', 
+  age: 24, 
+  gender: 'male'
+};
+
+person.email = 'Jakeb1@gmail.com';
+person['age'] = 64;
+
+console.log(person); // output: {name: "Jakeb", age: 64, gender: "male", email: "Jakeb1@gmail.com"}
+```
+
+Similarly, you can delete a property with "delete".
+
+```js
+delete person.age;
+console.log(person); //output: { name: 'Jakeb', gender: 'male', email: 'Jakeb1@gmail.com' }
+```
+
+Creating object methods:
+You can define methods within an object to perform operations. In this method, "this" refers to the object. 
+
+```js
+let person = { 
+  name: 'Jakeb', 
+  gender: 'male', 
+  email: 'Jakeb1@gmail.com',
+  greet: function() {
+    console.log("Hello, my name is " + this.name)
+  } }
+
+person.greet(); //output: Hello, my name is Jakeb
+```
+
+You can loop through objects properties using 'for... in' loops. 
+
+```js
+let person = { 
+  name: 'Jakeb', 
+  gender: 'male', 
+  email: 'Jakeb1@gmail.com',
+}
+
+for (let property in person) {
+  console.log(property + ': ' + person[property]);
+} // output: name: Jakeb \n gender: male \n email: Jakeb1@gmail.com
+```
+You can use Object.assign() to copy values to a target object. 
+
+```js
+let person = { 
+  name: 'Jakeb', 
+  gender: 'male', 
+  email: 'Jakeb1@gmail.com',
+}
+
+let profession = {
+  occupation = "web developer",
+  skillLevel = "beginner"
+}
+
+Object.assign(person, profession);
+console.log(person) // output: {name: 'Jakeb', gender: 'male', email: 'Jakeb1@gmail.com', occupation: 'web-developer', skillLevel: 'beginner'}
+```
 
 ---
 
 ## 12 - Explain how JSON can be manipulated in JavaScript, using examples from the JavaScript programming language
 <!-- [Demonstrates an extensive ability to manipulate JSON] 6 points -->
 
+JavaScript Object Notation is easily parsed to JavaScript using the build in JSON object. This will convert a JSON string into a JavaScript object. For example:
+
+```js
+let jsonStr = '{"name": "Jakeb", "age": 24, "gender": "male"}';
+let javaScript = JSON.parse(jsonStr);
+console.log(javaScript); // output: { name: 'Jakeb', age: 24, gender: 'male' }
+```
+
+Similarly, you can convert a JavaScript object into a JSON string using JSON.stringify().
+
+```js
+let javaScript = {
+  name: "Jakeb",
+  age: 30,
+  gender: "male"
+};
+
+let jsonStr =  JSON.stringify(javaScript);
+
+```
+
+JSON information can then be manipulated like any other JavaScript object as mentioned in Q11.
+
 ---
 
 ## 13 - For the code snippet provided below, write comments for each line of code to explain its functionality. In your comments you must demonstrates your ability to recognise and identify functions, ranges and classes
 <!-- [Demonstrates an extensive ability to recognise functions, ranges and classes] 12 points -->
 
+
 ```javascript
+
 class Car {
+  // creates a class name "Car" with a constructor that takes "brand"
   constructor(brand) {
+    // The Car.carname is set to the brand of the car. 
     this.carname = brand;
+
   }
+
   present() {
+    // Creates a method called "present", concatonating a string saying I have a, then adding the Car.carname, which is the brand. 
     return 'I have a ' + this.carname;
+
   }
 }
 
+  // Define a class "Model" that extends the "car" class. 
 class Model extends Car {
+  // defines the constructor method to take brand and mod as arguments. 
   constructor(brand, mod) {
+    // Calls the "car" class for brand. 
     super(brand);
+    // defines model as the mod argument passed in. 
     this.model = mod;
+
   }
+  // defines a method called show to return a string starting with the Car.carname [brand], concatenating "it was made in" then the model.
   show() {
+
     return this.present() + ', it was made in ' + this.model;
+
   }
 }
-
+// creates an array of car makes.
 let makes = ["Ford", "Holden", "Toyota"]
+
+// makes an array of model years. 
 let models = Array.from(new Array(40), (x,i) => i + 1980)
 
+// defines a function to create a random integer between a passed minimum and maximum. 
 function randomIntFromInterval(min,max) { // min and max included
+
     return Math.floor(Math.random()*(max-min+1)+min);
+
 }
 
+// Creates a loop to iterate through each model year in 'models' array. 
 for (model of models) {
 
+  // choose a random car make from the 'makes' array. 
   make = makes[randomIntFromInterval(0,makes.length-1)]
+  // choose a random model from the "models" array. 
   model = models[randomIntFromInterval(0,makes.length-1)]
 
+  // Create a new "Model" object with the random make and model year.
   mycar = new Model(make, model);
+
+  // Print a string with the car make and model year. 
   console.log(mycar.show())
+
 }
-... (5 lines left)
