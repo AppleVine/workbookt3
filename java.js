@@ -1,6 +1,7 @@
-console.log(1 == "1"); // true
-console.log(1 === "1"); // false
-console.log(null == undefined); // true
-console.log(null === undefined); // false
-console.log(0 == false) // true
-console.log(0 === false) // false
+let numbers = [1, 2, 3, 4, 5];
+
+let filteredArr = numbers.filter((element) => {
+    return element % 2 === 0;
+  });
+  
+  console.log(filteredArr); // output: [2, 4]

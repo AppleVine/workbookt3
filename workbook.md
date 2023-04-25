@@ -154,14 +154,144 @@ console.log(0 === false) // false
 ## 9 - Explain data types, using examples from the JavaScript programming language
 <!-- [Provides a thorough explanation of data types in programming] 6 points -->
 
+Data types the different ways data is stored and how it can be interacted with. In Javascript, there are:
+Strings - a collection of numbers, letters and symbols. Strings can be manoipulated with some methods, for example ```toUppserCase()``` will convert the string into capital letters (uppercase), ```concat()``` will concatenate two strings (add them together), or ```slice()``` to get portions of a string. In the example below, since both variables are assigned as strings it will not treat them as numeric values, and instead will concatenate them.  
+
+```js
+let num1 = '10';
+let num2 = '20';
+let result = num1 + num2;
+console.log(result); // output: "1020"
+```
+
+Numbers - integers, decimals. They can be used for mathematical operations. Numbers can also be incremented and decremented with ++ & --. 
+
+```js
+let num1 = 10;
+let num2 = 20;
+let result = num1 + num2;
+console.log(result); // output: "30"
+```
+
+Boolean - True or False values. Can be manipulated with && (and), || (or) and ! (not). 
+
+```js
+let isTrue = true;
+let isFalse = false;
+console.log(isTrue && isFalse);  // output: false
+console.log(isTrue || isFalse);  // output: true
+console.log(!isTrue);  // output: false (since !true is false)
+```
+
+Undefined - a variable created, but without a value. It can be assigned a variable to no longer be undefined. 
+
+```js
+let x;  // undefined variable
+console.log(x);  // output: undefined
+x = 1;  // assign a value to x
+console.log(x);  // output: 1
+```
+
+Null - Nothing. Like undefined, can be assigned a value. 
+
+```js
+let x = null;  // variable with null value
+console.log(x);  // output: null
+```
+
+Objects - Data structures with key-value pairs. They can be manipulated with various methods using dot or bracket notation. 
+
+```js
+let person = {
+  name: 'Jakeb',
+  age: 24,
+  isStudent: true
+};
+console.log(person.name);  // output: "Jakeb"
+console.log(person['age']);  // output: 24
+person.isStudent = true;
+console.log(person.isStudent);  // output: true
+```
+
+Arrays - A collection of data, e.g. an array of numbers is a list of numbers. They can be manipulated with some methods like push() to add an element to the end of the array, pop() removes an element at the end of the array. splice() lets you remove an element at a specific position. 
+
+
+
 ---
 
 ## 10 - Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language
 <!-- [Demonstrates an extensive ability to manipulate arrays] 6 points -->
 
+To add or remove elements:
+
+* push(): adds one or more elements to the end of an array.
+* pop(): removes the last element from an array.
+* unshift(): adds one or more elements to the beginning of an array.
+* shift(): removes the first element from an array.
+
+```js
+let numbers = [1, 2, 3];
+numbers.push(4);
+console.log(numbers);  // output: [1, 2, 3, 4]
+
+numbers.pop();
+console.log(numbers);  // output: [1, 2, 3]
+
+numbers.shift();
+console.log(numbers);  // output: [2, 3]
+```
+
+Change a specific element (note this is based off index, starting from 0). 
+
+```js
+let fruits = ['apple', 'banana', 'blueberry'];
+fruits[1] = 'strawberry';
+console.log(arr); // output: ['apple', 'strawberry', 'blueberry']
+``` 
+
+* slice(): returns the rest of the array after the indexed number.
+* splice(): adds or removes elements from an array.
+
+```js
+let numbers = [2, 3]
+numbers.splice(1, 0, 4, 5);
+console.log(numbers); // output: [ 2, 4, 5, 3]
+
+
+let slicedArr = numbers.slice(2);
+console.log(slicedArr); // output: [5, 3]
+```
+
+Iterate through arrays:
+
+* forEach(): executes a provided function once for each array element.
+* map(): creates a new array with the results of calling a provided function on every element in the array.
+* filter(): creates a new array with all elements that pass the test implemented by the provided function.
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((element) => {
+  console.log(element);
+}); // ouput: 1 \n 2 \n 3 \n 4 \n 5
+
+let mappedArr = numbers.map((element) => {
+  return element * 2;
+});
+
+console.log(mappedArr); // output: [2, 4, 6, 8, 10]
+
+let filteredArr = numbers.filter((element) => {
+  return element % 2 === 0;
+});
+
+console.log(filteredArr); // output: [2, 4]
+
+```
+
 ---
 
-## 11 - Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language
+## 11 -   
 <!-- [Demonstrates an extensive ability to manipulate objects] 6 points -->
 
 ---
