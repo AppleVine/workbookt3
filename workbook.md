@@ -7,12 +7,11 @@ The first choice when creating a source control process for a large step is choo
 
 After a system is chosen, a repository needs to be made to store the project files, and made accessible by the whole team. Once the repository is set up the team needs to make a choice on its branching strategy. Git provides some examples of branching strategies and makes an easier setup for these, such as "Centralized workflow" or "GitFlow". 
 
-For a large project, a team would find GitFlow more suitable as it's designed as a more complex branching strategy for large teams and/or projects. It works by creating multiple branches for different purposes, e.g. features, hotfixes, development etc., and working on these branches independent of the master branch keeping it stable for production, and reducing the risk of bugs by allowing for extensive testing.
+For a large project, a team would find GitFlow more suitable as it's designed as a more complex branching strategy for large teams and/or projects. It works by creating multiple branches for different purposes, e.g. features, hotfixes, development etc., and working on these branches independent of the master branch keeping it stable for production, and reducing the risk of bugs by allowing for extensive testing.<sup>1</sup>
 
 Once the branching strategy is implemented, the team should implement access control using authentication & authorization to limit the changes of code to relevant teams. Then proper Continuous Integration/Continuous Deployment pipelines can be established to automate the processes behind code building, bug testing and deployment making it more efficient and reducing the risk of errors. 
 
 In GitFlow, the CI/CD pipelines are configured to trigger workflows based on the type of branch being update; for example if a new feature branch is created, the pipeline will automatically run tests on the code quality that checks that branch before it's merged into the 'developer' branch. Or, if a hotfix branch is created, it can be set up to automatically deploy the fix to production as soon as it passes its tests instead. Access control can be used to determine which teams are able to deploy to different types of branches to reduce the risk of human error. 
-
 
 Now code can be pulled for review by the team before it's deployed to make sure it meets project requirements and standards, before it's merged and deployed to production. 
 
@@ -21,7 +20,7 @@ Now code can be pulled for review by the team before it's deployed to make sure 
 ## 2 - What are the most important aspects of quality software? 
 <!-- [List discuss and demonstrate 6 software quality characteristics] 6 points -->
 
-Different standards explain these characteristics differently using similar language. The ISO/IEC 25010:2011 standard uses Functional Suitability, Performance Efficiency, Compatability, Usability, Reliability, Security, Maintainability and Portability. 
+Different standards explain these characteristics differently using similar language. The ISO/IEC 25010:2011 standard uses Functional Suitability, Performance Efficiency, Compatability, Usability, Reliability, Security, Maintainability and Portability.<sup>2</sup>
 
 Functional suitability refers to the codes ability to perform all of the required functions as expected. This aspect is split into three sub-characteristics in the standard. 
 - Functional completeness: the degree to which software performs all required functions & features.
@@ -64,7 +63,7 @@ Portability measures the softwares ability for change to other systems, its own 
 ## 3 - Outline a standard high level structure for a MERN stack application and explain the components
 <!-- [Shows almost flawless understanding of the high level structure of the app] 6 points -->
 
-A MERN stack is one variation of a MEAN stack using MonogoDB (document database), Express.js (Node.js web framework), React.js (Client-side JavaScript framework) and Node.js (a JavaScript runtime environment for server-side applications). It's made up of three layers, the front end, back end and database.
+A MERN stack is one variation of a MEAN stack using MonogoDB (document database), Express.js (Node.js web framework), React.js (Client-side JavaScript framework) and Node.js (a JavaScript runtime environment for server-side applications). It's made up of three layers, the front end, back end and database.<sup>3</sup>
 
 In a MERN stack web application, React is used to build the front-end layer by providing a JavaScript library for creating the user interface and experience (UI/UX). The reusable components within are designed to be simple to implement to handle rendering and updating the UI with the provided data. 
 
@@ -158,7 +157,7 @@ console.log(1 + "1"); // "55"
 console.log("1" + 1); // "55"
 ```
 
-The equal operator '==' will automatically coerce values, where the '===' will not. E.g.
+The equal operator == will automatically coerce values, where the === will not. E.g.
 
 ```js
 console.log(1 == "1"); // true
@@ -174,7 +173,7 @@ console.log(0 === false) // false
 ## 9 - Explain data types, using examples from the JavaScript programming language
 <!-- [Provides a thorough explanation of data types in programming] 6 points -->
 
-Data types the different ways data is stored and how it can be interacted with. In Javascript, there are:
+Data types are the different ways data is stored and how it can be interacted with. In Javascript, there are:<sup>4</sup>
 Strings - a collection of numbers, letters and symbols. Strings can be manoipulated with some methods, for example ```toUppserCase()``` will convert the string into capital letters (uppercase), ```concat()``` will concatenate two strings (add them together), or ```slice()``` to get portions of a string. In the example below, since both variables are assigned as strings it will not treat them as numeric values, and instead will concatenate them.  
 
 ```js
@@ -242,7 +241,7 @@ Arrays - A collection of data, e.g. an array of numbers is a list of numbers. Th
 ## 10 - Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language
 <!-- [Demonstrates an extensive ability to manipulate arrays] 6 points -->
 
-To add or remove elements:
+To add or remove elements: <sup>5</sup>
 
 * push(): adds one or more elements to the end of an array.
 * pop(): removes the last element from an array.
@@ -314,7 +313,7 @@ console.log(filteredArr); // output: [2, 4]
 ## 11 - Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language
 <!-- [Demonstrates an extensive ability to manipulate objects] 6 points -->
 
-You can access and update proprties of an object using dot or square bracket notation like below. 
+You can access and update proprties of an object using dot or square bracket notation like below. <sup>6</sup>
 
 ```js
 let person = { 
@@ -478,3 +477,20 @@ for (model of models) {
   console.log(mycar.show())
 
 }
+
+```
+
+
+## References
+
+* (1) https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
+* (2) https://www.iso.org/standard/35733.html
+
+* (3) https://www.mongodb.com/mern-stack
+
+* (4) https://devmountain.com/blog/what-are-data-types-javascript-101/#:~:text=In%20Javascript%2C%20there%20are%20five,a%20single%20type%20of%20data.
+
+* (5) https://www.freecodecamp.org/news/manipulating-arrays-in-javascript/
+
+* (6) https://www.codehousegroup.com/insights/how-to-use-object-manipulation-in-javascript
